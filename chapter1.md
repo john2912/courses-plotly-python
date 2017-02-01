@@ -58,6 +58,8 @@ from plotly.offline import plot
 
 *** =sample_code
 ```{python}
+from plotly import __version__
+from plotly.offline import plot
 from plotly.graph_objs import *
 import pandas as pd
 
@@ -78,6 +80,8 @@ plot({
 
 *** =solution
 ```{python}
+from plotly import __version__
+from plotly.offline import plot
 from plotly.graph_objs import *
 import pandas as pd
 
