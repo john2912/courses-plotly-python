@@ -83,7 +83,7 @@ import pandas as pd
 
 df = pd.read_csv('https://plot.ly/~etpinard/191.csv')
 
-iplot({
+plot({
     'data': [
         Scatter(x=df[continent+', x'],
                 y=df[continent+', y'],
