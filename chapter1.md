@@ -7,6 +7,8 @@ description : Insert the chapter description here
 
 This exercise features an example of plotly.
 
+Hang on tight - your code may take a moment to run :)
+
 *** =instructions
 - Just hit submit answer
 
@@ -15,12 +17,13 @@ This exercise features an example of plotly.
 
 *** =pre_exercise_code
 ```{python}
+from plotly import __version__
+from plotly.offline import plot
 ```
 
 *** =sample_code
 ```{python}
-from plotly import __version__
-from plotly.offline import plot
+
 from plotly.graph_objs import Scatter, Figure, Layout
 x = [1, 2, 3]; y = [1, 2, 3];
 plot([Scatter(x=x, y=y, mode = 'markers')])
@@ -43,11 +46,13 @@ success_msg("Great work!")
 --- type:NormalExercise lang:python xp:100 skills:2 key:8546b612c1
 ## Plotly Example No. 2
 
+Create your second cool plot. 
 
+Hang on tight - your code may take a moment to run :)
 
 
 *** =instructions
-
+- Click submit answer 
 *** =hint
 
 *** =pre_exercise_code
@@ -102,18 +107,21 @@ plot({
 
 *** =sct
 ```{python}
-
+success_msg("Looking good!")
 ```
 
 --- type:NormalExercise lang:python xp:100 skills:2 key:368be49690
 ## Plotly Example #3
 
+Make your 3rd Plotly Plot
 
+Hang on tight - your code may take a moment to run :)
 
 *** =instructions
+- Click submit answer 
 
 *** =hint
-
+- No hints!
 *** =pre_exercise_code
 ```{python}
 
@@ -219,5 +227,6 @@ plot( fig, filename='d3-cloropleth-map' )
 
 *** =sct
 ```{python}
+success_msg("Super!")
 
 ```
