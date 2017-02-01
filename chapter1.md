@@ -122,52 +122,99 @@ plot({
 *** =sample_code
 ```{python}
 from plotly import __version__
-from plotly.offline import download_plotlyjs, plot
+from plotly.offline import download_plotlyjs, init_notebook_mode, plot
+import pandas as pd
 
-# Create random data with numpy
-import numpy as np
+df = pd.read_csv('https://raw.githubusercontent.com/plotly/datasets/master/2011_us_ag_exports.csv')
 
-N = 1000
-random_x = np.random.randn(N)
-random_y = np.random.randn(N)
+for col in df.columns:
+    df[col] = df[col].astype(str)
 
-# Create a trace
-trace = go.Scatter(
-    x = random_x,
-    y = random_y,
-    mode = 'markers'
-)
+scl = [[0.0, 'rgb(242,240,247)'],[0.2, 'rgb(218,218,235)'],[0.4, 'rgb(188,189,220)'],\
+            [0.6, 'rgb(158,154,200)'],[0.8, 'rgb(117,107,177)'],[1.0, 'rgb(84,39,143)']]
 
-data = [trace]
+df['text'] = df['state'] + '<br>' +\
+    'Beef '+df['beef']+' Dairy '+df['dairy']+'<br>'+\
+    'Fruits '+df['total fruits']+' Veggies ' + df['total veggies']+'<br>'+\
+    'Wheat '+df['wheat']+' Corn '+df['corn']
 
-# Plot and embed in ipython notebook!
-plot(data, filename='basic-scatter')
+data = [ dict(
+        type='choropleth',
+        colorscale = scl,
+        autocolorscale = False,
+        locations = df['code'],
+        z = df['total exports'].astype(float),
+        locationmode = 'USA-states',
+        text = df['text'],
+        marker = dict(
+            line = dict (
+                color = 'rgb(255,255,255)',
+                width = 2
+            ) ),
+        colorbar = dict(
+            title = "Millions USD")
+        ) ]
 
+layout = dict(
+        title = '2011 US Agriculture Exports by State<br>(Hover for breakdown)',
+        geo = dict(
+            scope='usa',
+            projection=dict( type='albers usa' ),
+            showlakes = True,
+            lakecolor = 'rgb(255, 255, 255)'),
+             )
+    
+fig = dict( data=data, layout=layout )
+plot( fig, filename='d3-cloropleth-map' )
 ```
 
 *** =solution
 ```{python}
 from plotly import __version__
-from plotly.offline import download_plotlyjs, plot
+from plotly.offline import download_plotlyjs, init_notebook_mode, plot
+import pandas as pd
 
-# Create random data with numpy
-import numpy as np
+df = pd.read_csv('https://raw.githubusercontent.com/plotly/datasets/master/2011_us_ag_exports.csv')
 
-N = 1000
-random_x = np.random.randn(N)
-random_y = np.random.randn(N)
+for col in df.columns:
+    df[col] = df[col].astype(str)
 
-# Create a trace
-trace = go.Scatter(
-    x = random_x,
-    y = random_y,
-    mode = 'markers'
-)
+scl = [[0.0, 'rgb(242,240,247)'],[0.2, 'rgb(218,218,235)'],[0.4, 'rgb(188,189,220)'],\
+            [0.6, 'rgb(158,154,200)'],[0.8, 'rgb(117,107,177)'],[1.0, 'rgb(84,39,143)']]
 
-data = [trace]
+df['text'] = df['state'] + '<br>' +\
+    'Beef '+df['beef']+' Dairy '+df['dairy']+'<br>'+\
+    'Fruits '+df['total fruits']+' Veggies ' + df['total veggies']+'<br>'+\
+    'Wheat '+df['wheat']+' Corn '+df['corn']
 
-# Plot and embed in ipython notebook!
-plot(data, filename='basic-scatter')
+data = [ dict(
+        type='choropleth',
+        colorscale = scl,
+        autocolorscale = False,
+        locations = df['code'],
+        z = df['total exports'].astype(float),
+        locationmode = 'USA-states',
+        text = df['text'],
+        marker = dict(
+            line = dict (
+                color = 'rgb(255,255,255)',
+                width = 2
+            ) ),
+        colorbar = dict(
+            title = "Millions USD")
+        ) ]
+
+layout = dict(
+        title = '2011 US Agriculture Exports by State<br>(Hover for breakdown)',
+        geo = dict(
+            scope='usa',
+            projection=dict( type='albers usa' ),
+            showlakes = True,
+            lakecolor = 'rgb(255, 255, 255)'),
+             )
+    
+fig = dict( data=data, layout=layout )
+plot( fig, filename='d3-cloropleth-map' )
 ```
 
 *** =sct
