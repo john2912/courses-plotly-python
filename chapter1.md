@@ -17,13 +17,12 @@ Hang on tight - your code may take a moment to run :)
 
 *** =pre_exercise_code
 ```{python}
-from plotly import __version__
-from plotly.offline import plot
 ```
 
 *** =sample_code
 ```{python}
-
+from plotly import __version__
+from plotly.offline import plot
 from plotly.graph_objs import Scatter, Figure, Layout
 x = [1, 2, 3]; y = [1, 2, 3];
 plot([Scatter(x=x, y=y, mode = 'markers')])
