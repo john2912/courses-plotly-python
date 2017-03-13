@@ -17,13 +17,13 @@ Hang on tight - your code may take a moment to run :)
 
 *** =pre_exercise_code
 ```{python}
+import plotly.plotly as py
+from plotly.graph_objs import Scatter
+py.sign_in('datacamp_python', '9IB7oEs6qib6jiwOTwRA')
 ```
 
 *** =sample_code
 ```{python}
-import plotly.plotly as py
-from plotly.graph_objs import Scatter
-py.sign_in('datacamp_python', '9IB7oEs6qib6jiwOTwRA')
 x = [1, 2, 3]; y = [1, 2, 3];
 plot([Scatter(x=x, y=y, mode = 'markers')])
 ```
@@ -52,20 +52,19 @@ Hang on tight - your code may take a moment to run :)
 
 *** =pre_exercise_code
 ```{python}
-from plotly import __version__
-from plotly.offline import plot
+import plotly.plotly as py
+py.sign_in('datacamp_python', '9IB7oEs6qib6jiwOTwRA')
 ```
 
 *** =sample_code
 ```{python}
-from plotly import __version__
-from plotly.offline import plot
+import plotly.plotly as py
 from plotly.graph_objs import *
 import pandas as pd
 
 df = pd.read_csv('https://plot.ly/~etpinard/191.csv')
 
-plot({
+py.plot({
     'data': [
         Scatter(x=df[continent+', x'],
                 y=df[continent+', y'],
@@ -80,14 +79,13 @@ plot({
 
 *** =solution
 ```{python}
-from plotly import __version__
-from plotly.offline import plot
+import plotly.plotly as py
 from plotly.graph_objs import *
 import pandas as pd
 
 df = pd.read_csv('https://plot.ly/~etpinard/191.csv')
 
-plot({
+py.plot({
     'data': [
         Scatter(x=df[continent+', x'],
                 y=df[continent+', y'],
@@ -118,14 +116,16 @@ Hang on tight - your code may take a moment to run :)
 *** =hint
 - No hints!
 *** =pre_exercise_code
-```{python}
 
+```{python}
+import plotly.plotly as py
+py.sign_in('datacamp_python', '9IB7oEs6qib6jiwOTwRA')
 ```
 
 *** =sample_code
 ```{python}
-from plotly import __version__
-from plotly.offline import download_plotlyjs, init_notebook_mode, plot
+import plotly.plotly as py
+from plotly.graph_objs import *
 import pandas as pd
 
 df = pd.read_csv('https://raw.githubusercontent.com/plotly/datasets/master/2011_us_ag_exports.csv')
@@ -168,13 +168,13 @@ layout = dict(
              )
 
 fig = dict( data=data, layout=layout )
-plot( fig, filename='d3-cloropleth-map' )
+py.plot( fig, filename='d3-cloropleth-map' )
 ```
 
 *** =solution
 ```{python}
-from plotly import __version__
-from plotly.offline import download_plotlyjs, init_notebook_mode, plot
+import plotly.plotly as py
+from plotly.graph_objs import *
 import pandas as pd
 
 df = pd.read_csv('https://raw.githubusercontent.com/plotly/datasets/master/2011_us_ag_exports.csv')
@@ -217,7 +217,7 @@ layout = dict(
              )
 
 fig = dict( data=data, layout=layout )
-plot( fig, filename='d3-cloropleth-map' )
+py.plot( fig, filename='d3-cloropleth-map' )
 ```
 
 *** =sct
