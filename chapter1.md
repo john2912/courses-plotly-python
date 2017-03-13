@@ -21,20 +21,16 @@ Hang on tight - your code may take a moment to run :)
 
 *** =sample_code
 ```{python}
-from plotly import __version__
-from plotly.offline import plot
-from plotly.graph_objs import Scatter, Figure, Layout
+import plotly.plotly as py
+from plotly.graph_objs import Scatter
+py.sign_in('datacamp_python', '9IB7oEs6qib6jiwOTwRA')
 x = [1, 2, 3]; y = [1, 2, 3];
 plot([Scatter(x=x, y=y, mode = 'markers')])
 ```
 
 *** =solution
 ```{python}
-from plotly import __version__
-from plotly.offline import plot
-from plotly.graph_objs import Scatter, Figure, Layout
-x = [1, 2, 3]; y = [1, 2, 3];
-plot([Scatter(x=x, y=y, mode = 'markers')])
+# no code
 ```
 
 *** =sct
@@ -45,13 +41,13 @@ success_msg("Great work!")
 --- type:NormalExercise lang:python xp:100 skills:2 key:8546b612c1
 ## Plotly Example No. 2
 
-Create your second cool plot. 
+Create your second cool plot.
 
 Hang on tight - your code may take a moment to run :)
 
 
 *** =instructions
-- Click submit answer 
+- Click submit answer
 *** =hint
 
 *** =pre_exercise_code
@@ -117,7 +113,7 @@ Make your 3rd Plotly Plot
 Hang on tight - your code may take a moment to run :)
 
 *** =instructions
-- Click submit answer 
+- Click submit answer
 
 *** =hint
 - No hints!
@@ -170,7 +166,7 @@ layout = dict(
             showlakes = True,
             lakecolor = 'rgb(255, 255, 255)'),
              )
-    
+
 fig = dict( data=data, layout=layout )
 plot( fig, filename='d3-cloropleth-map' )
 ```
@@ -219,7 +215,7 @@ layout = dict(
             showlakes = True,
             lakecolor = 'rgb(255, 255, 255)'),
              )
-    
+
 fig = dict( data=data, layout=layout )
 plot( fig, filename='d3-cloropleth-map' )
 ```
